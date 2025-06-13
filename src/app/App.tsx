@@ -1,18 +1,12 @@
 import { FC } from "react";
-import { Route, Routes } from "react-router-dom";
-import { Layout } from "@/app/Layout";
-import { Home, NoMatch } from "@/pages";
+import "@xyflow/react/dist/base.css";
+import { Home } from "@/pages/Home";
 
 const App: FC = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
-    </>
+    <div className="h-full w-full">
+      <Home />
+    </div>
   );
 };
 
