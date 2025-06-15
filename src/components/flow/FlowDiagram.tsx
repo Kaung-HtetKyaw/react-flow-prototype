@@ -21,7 +21,7 @@ import { CustomNode } from "./CustomNode";
 import { GroupNode } from "./GroupNode";
 import { DraggableEdge } from "./DraggableEdge";
 import { SimpleEdge } from "./SimpleEdge";
-import { initialNodes, initialEdges } from "./initialData";
+import { initialDiagramData, initialDiagramEdges } from "./initialData";
 
 const nodeTypes: NodeTypes = {
   custom: CustomNode,
@@ -34,10 +34,10 @@ const edgeTypes: EdgeTypes = {
 };
 
 function FlowDiagram() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialDiagramData);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialDiagramEdges);
   const [draggedNode, setDraggedNode] = useState<string | null>(null);
-  const [edgeType, setEdgeType] = useState<"draggable" | "simple">("draggable");
+  const [edgeType, setEdgeType] = useState<"draggable" | "simple">("simple");
   const proximityThreshold = 100;
   const connectTimeoutRef = useRef<number>();
 
@@ -148,7 +148,7 @@ function FlowDiagram() {
 
   return (
     <div className="h-screen w-full bg-gray-50">
-      <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2 space-x-2">
+      {/* <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2 space-x-2">
         <button
           onClick={addNode}
           className="rounded-lg bg-blue-500 px-4 py-2 text-white shadow-lg transition-colors hover:bg-blue-600"
@@ -176,7 +176,7 @@ function FlowDiagram() {
             <option value="simple">Simple (Bezier)</option>
           </select>
         </div>
-      </div>
+      </div> */}
 
       <ReactFlow
         nodes={nodes}

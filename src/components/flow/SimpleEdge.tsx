@@ -48,7 +48,7 @@ export const SimpleEdge = ({
         className="stroke-gray-400 stroke-2 hover:stroke-blue-500"
         style={{ zIndex: 9999 }}
       />
-      <EdgeLabelRenderer>
+      {/* <EdgeLabelRenderer>
         <div
           style={{
             position: "absolute",
@@ -84,7 +84,7 @@ export const SimpleEdge = ({
             </button>
           )}
         </div>
-      </EdgeLabelRenderer>
+      </EdgeLabelRenderer> */}
     </>
   );
 };
