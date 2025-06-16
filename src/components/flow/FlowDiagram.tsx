@@ -14,6 +14,7 @@ import {
   useReactFlow,
   ReactFlow,
   BackgroundVariant,
+  OnMove,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
@@ -40,6 +41,9 @@ function FlowDiagram() {
   const [edgeType, setEdgeType] = useState<"draggable" | "simple">("simple");
   const proximityThreshold = 100;
   const connectTimeoutRef = useRef<number>();
+  const previousZoom = useRef<number>(0);
+  const reactFlowInstance = useReactFlow();
+  const [zoomedInGroups, setZoomedInGroups] = useState<Node[]>([]);
 
   const onConnect = useCallback(
     (params: Edge | Connection) => {
@@ -146,37 +150,50 @@ function FlowDiagram() {
     setNodes((nds) => [...nds, newGroup]);
   }, [nodes, setNodes]);
 
+  const onMove: OnMove = (event, viewport) => {
+    if (event instanceof MouseEvent) {
+      const centerPosition = reactFlowInstance.screenToFlowPosition({
+        x: event.clientX,
+        y: event.clientY,
+      });
+
+      // Create a small rectangle around the cursor position
+      const searchArea = {
+        x: centerPosition.x - 10,
+        y: centerPosition.y - 10,
+        width: 20,
+        height: 20,
+      };
+
+      const intersectingNodes = reactFlowInstance.getIntersectingNodes(
+        searchArea,
+        false,
+      );
+
+      setZoomedInGroups(
+        intersectingNodes.filter((node) => node.type === "group"),
+      );
+    }
+    previousZoom.current = viewport.zoom;
+  };
+
   return (
     <div className="h-screen w-full bg-gray-50">
-      {/* <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2 space-x-2">
-        <button
-          onClick={addNode}
-          className="rounded-lg bg-blue-500 px-4 py-2 text-white shadow-lg transition-colors hover:bg-blue-600"
-        >
-          Add Node
-        </button>
-        <button
-          onClick={addGroup}
-          className="rounded-lg bg-purple-500 px-4 py-2 text-white shadow-lg transition-colors hover:bg-purple-600"
-        >
-          Add Group
-        </button>
-        <div className="flex items-center space-x-2">
-          <label className="text-sm font-medium text-gray-700">
-            Edge Type:
-          </label>
-          <select
-            value={edgeType}
-            onChange={(e) =>
-              setEdgeType(e.target.value as "draggable" | "simple")
-            }
-            className="rounded-md border border-gray-300 px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="draggable">Draggable (Orthogonal)</option>
-            <option value="simple">Simple (Bezier)</option>
-          </select>
+      {zoomedInGroups.length > 0 && (
+        <div className="flex flex-col items-center bg-white">
+          <h3 className="mb-[10px] text-[20px] font-bold text-black">
+            You zoomed in on these groups:
+          </h3>
+          <ul className="flex flex-col gap-2 text-black">
+            {zoomedInGroups.map((group) => (
+              <li key={group.id}>
+                <span>Querying for: </span>
+                <span>{group.data.label as string}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div> */}
+      )}
 
       <ReactFlow
         nodes={nodes}
@@ -188,8 +205,9 @@ function FlowDiagram() {
         onNodeDragStop={handleNodeDragStop}
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
+        onMove={onMove}
         fitView
-        className="bg-gray-50"
+        className="bg-white"
         defaultEdgeOptions={{
           type: edgeType,
         }}
@@ -199,7 +217,7 @@ function FlowDiagram() {
           variant={BackgroundVariant.Dots}
           gap={20}
           size={1}
-          className="bg-gray-100"
+          className="bg-white"
           color="#d1d5db"
         />
       </ReactFlow>
