@@ -10,7 +10,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
-    connections: ["dex", "redis"],
+    connections: ["dex", "redis", "argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -23,6 +23,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -35,6 +36,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -47,6 +49,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -59,6 +62,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -71,6 +75,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -83,6 +88,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -95,6 +101,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -107,6 +114,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
@@ -119,6 +127,7 @@ export const containersDataset = [
     imageRepository: "quay.io/argoproj",
     createdAt: "0001-01-01T00:00:00Z",
     deletedAt: "0001-01-01T00:00:00Z",
+    connections: ["argocd-applicationset-controller"],
   },
   {
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",

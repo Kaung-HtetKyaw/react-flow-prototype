@@ -104,9 +104,7 @@ export const getVisualizationNodeForCluster = (
   const width = childrenWidth + padding + horizontalGap;
 
   const height =
-    numberOfRows > 0
-      ? childrenHeight + padding + (numberOfRows - 1) * ENTITY_GAP
-      : BASE_GROUP_HEIGHT;
+    numberOfRows > 0 ? childrenHeight + padding : BASE_GROUP_HEIGHT;
 
   const leftAdjacentCluster =
     coordinateDimensionList[index - 1] || DEFAULT_COORDINATE_DIMENSION;

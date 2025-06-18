@@ -40,7 +40,10 @@ import {
 import { VisualizationNode } from "@/dataset/types";
 import { namespacesDataset } from "@/dataset/namespaces";
 import { podsDataset } from "@/dataset/pods";
-import { getVisualizationEdges } from "@/utils/getVisualizationEdges";
+import {
+  getVisualizationEdgeBaseStyle,
+  getVisualizationEdges,
+} from "@/utils/getVisualizationEdges";
 
 const nodeTypes: NodeTypes = {
   custom: CustomNode,
@@ -79,8 +82,8 @@ function FlowDiagram({
         addEdge(
           {
             ...params,
-            type: "smoothstep",
             data: { label: "new connection" },
+            ...getVisualizationEdgeBaseStyle(),
           },
           eds,
         ),
@@ -95,48 +98,48 @@ function FlowDiagram({
     (event: React.MouseEvent, node: Node) => {
       setDraggedNode(node.id);
 
-      // Clear existing timeout
-      if (connectTimeoutRef.current) {
-        clearTimeout(connectTimeoutRef.current);
-      }
+      // // Clear existing timeout
+      // if (connectTimeoutRef.current) {
+      //   clearTimeout(connectTimeoutRef.current);
+      // }
 
-      // Check proximity to other nodes (excluding group nodes)
-      connectTimeoutRef.current = setTimeout(() => {
-        const otherNodes = nodes.filter(
-          (n) => n.id !== node.id && n.type !== "group",
-        );
+      // // Check proximity to other nodes (excluding group nodes)
+      // connectTimeoutRef.current = setTimeout(() => {
+      //   const otherNodes = nodes.filter(
+      //     (n) => n.id !== node.id && n.type !== "group",
+      //   );
 
-        otherNodes.forEach((otherNode) => {
-          const distance = Math.sqrt(
-            Math.pow(node.position.x - otherNode.position.x, 2) +
-              Math.pow(node.position.y - otherNode.position.y, 2),
-          );
+      //   otherNodes.forEach((otherNode) => {
+      //     const distance = Math.sqrt(
+      //       Math.pow(node.position.x - otherNode.position.x, 2) +
+      //         Math.pow(node.position.y - otherNode.position.y, 2),
+      //     );
 
-          if (distance < proximityThreshold) {
-            // Check if connection already exists
-            const connectionExists = edges.some(
-              (edge) =>
-                // @ts-ignore
-                (edge.source === node.id && edge.target === otherNode.id) ||
-                // @ts-ignore
-                (edge.source === otherNode.id && edge.target === node.id),
-            );
+      //     if (distance < proximityThreshold) {
+      //       // Check if connection already exists
+      //       const connectionExists = edges.some(
+      //         (edge) =>
+      //           // @ts-ignore
+      //           (edge.source === node.id && edge.target === otherNode.id) ||
+      //           // @ts-ignore
+      //           (edge.source === otherNode.id && edge.target === node.id),
+      //       );
 
-            if (!connectionExists) {
-              const newEdge: Edge = {
-                id: `proximity-${node.id}-${otherNode.id}`,
-                source: node.id,
-                target: otherNode.id,
-                type: edgeType,
-                data: { label: "auto-connected" },
-                className: "stroke-green-500",
-              };
-              // @ts-ignore
-              setEdges((eds) => [...eds, newEdge]);
-            }
-          }
-        });
-      }, 500);
+      //       if (!connectionExists) {
+      //         const newEdge: Edge = {
+      //           id: `proximity-${node.id}-${otherNode.id}`,
+      //           source: node.id,
+      //           target: otherNode.id,
+      //           type: edgeType,
+      //           data: { label: "auto-connected" },
+      //           className: "stroke-green-500",
+      //         };
+      //         // @ts-ignore
+      //         setEdges((eds) => [...eds, newEdge]);
+      //       }
+      //     }
+      //   });
+      // }, 500);
     },
     [nodes, edges, setEdges, edgeType],
   );

@@ -19,10 +19,17 @@ export const getVisualizationEdges = (): Edge[] => {
     .flat()
     .map((el) => ({
       ...el,
-      zIndex: 1000,
-      interactionWidth: 20,
-      style: {
-        stroke: "#04A1F9",
-      },
+      ...getVisualizationEdgeBaseStyle(),
     }));
+};
+
+export const getVisualizationEdgeBaseStyle = (): Partial<Edge> => {
+  return {
+    style: {
+      stroke: "#04A1F9",
+    },
+    interactionWidth: 20,
+    zIndex: 1000,
+    type: "smoothstep",
+  };
 };
