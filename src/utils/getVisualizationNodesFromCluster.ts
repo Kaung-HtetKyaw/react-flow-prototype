@@ -43,7 +43,13 @@ export const getFlatVisualizationNodes = (nodes: VisualizationNode[]) => {
     }
   });
 
-  return result;
+  return result.map((el) => ({
+    ...el,
+    style: {
+      ...(el.style || {}),
+      borderRadius: "9px",
+    },
+  }));
 };
 
 // export const getVisualizationNodeForCluster = (
@@ -406,7 +412,7 @@ export const getVisualizationNodesForContainer = (
   const indexPerRow = index % ENTITY_PER_ROW;
   const rowIndex = Math.floor(index / ENTITY_PER_ROW);
   const x = indexPerRow * ENTITY_PADDING + indexPerRow * BASE_CONTAINER_WIDTH;
-  const y = rowIndex * BASE_CONTAINER_HEIGHT;
+  const y = rowIndex * BASE_CONTAINER_HEIGHT + 2 * ENTITY_GAP;
 
   return {
     id: container.name,
@@ -426,7 +432,6 @@ export const getVisualizationNodesForContainer = (
       height: BASE_CONTAINER_HEIGHT,
       maxHeight: BASE_CONTAINER_HEIGHT,
       maxWidth: BASE_CONTAINER_WIDTH,
-      marginTop: `${ENTITY_PADDING}px`,
     },
   };
 };
