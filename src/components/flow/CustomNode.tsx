@@ -83,7 +83,6 @@ export const CustomNode = ({ data, selected }: NodeProps) => {
           height: `${BASE_CONTAINER_HEIGHT}px`,
           textOverflow: "ellipsis",
           whiteSpace: "nowrap",
-          overflow: "hidden",
         }}
         className="flex items-center"
       >
@@ -118,11 +117,19 @@ export const CustomNode = ({ data, selected }: NodeProps) => {
             </svg>
           )}
 
-          <div
-            style={{ minWidth: `${BASE_CONTAINER_WIDTH}px` }}
-            className="rounded-[4px] border-[1px] border-solid border-[#00277B] bg-[#DFF0FF]  pl-[16px] pr-[8px] text-[10px] text-gray-800"
-          >
-            {data.label as string}
+          <div className="rounded-[4px] border-[1px] border-solid border-[#00277B] bg-[#DFF0FF]  pl-[16px] pr-[8px] text-[10px] text-gray-800">
+            <span
+              style={{
+                width: `${BASE_CONTAINER_WIDTH - 50}px`,
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+              }}
+              className="block"
+            >
+              {" "}
+              {data.label as string}
+            </span>
           </div>
           {/* <div className="text-sm text-gray-500">
             {(data.description as string) || "Node description"}
