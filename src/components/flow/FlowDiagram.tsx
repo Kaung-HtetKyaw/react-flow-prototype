@@ -240,6 +240,9 @@ function FlowDiagram({
         defaultEdgeOptions={{
           type: edgeType,
           zIndex: 1000,
+          style: {
+            stroke: "black",
+          },
         }}
       >
         <Controls className="border border-gray-200 bg-white shadow-lg" />
