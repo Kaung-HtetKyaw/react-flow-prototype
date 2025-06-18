@@ -6,7 +6,7 @@ export const getVisualizationEdges = (): Edge[] => {
     .map((container) => {
       return (container?.connections || []).map((connection) => {
         return {
-          id: container.name,
+          id: `${container.name}-${connection}`,
           source: container.name,
           target: connection,
           type: "smoothstep",
