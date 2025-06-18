@@ -79,14 +79,14 @@ function FlowDiagram({
         addEdge(
           {
             ...params,
-            type: edgeType,
+            type: "smoothstep",
             data: { label: "new connection" },
           },
           eds,
         ),
       );
     },
-    [setEdges, edgeType],
+    [setEdges],
   );
 
   // can handle Proximity connection logic
@@ -206,7 +206,7 @@ function FlowDiagram({
   //   }
   //   previousZoom.current = viewport.zoom;
   // };
-
+  console.log(edges);
   return (
     <div className="h-screen w-full bg-gray-50">
       {zoomedInGroups.length > 0 && (

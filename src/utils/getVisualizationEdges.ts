@@ -16,5 +16,13 @@ export const getVisualizationEdges = (): Edge[] => {
         };
       });
     })
-    .flat();
+    .flat()
+    .map((el) => ({
+      ...el,
+      zIndex: 1000,
+      interactionWidth: 20,
+      style: {
+        stroke: "#04A1F9",
+      },
+    }));
 };

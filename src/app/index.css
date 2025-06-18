@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-flow__node {
+  z-index: -1 !important;
+}
+
+.react-flow__edge.selected path {
+  stroke-dasharray: 5;
+  animation: dashdraw 0.5s linear infinite;
+  stroke: #04a1f9 !important;
+  stroke-width: 2px;
+}
+
+@keyframes dashdraw {
+  from {
+    stroke-dashoffset: 10;
+  }
+}
