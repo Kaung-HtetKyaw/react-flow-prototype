@@ -263,6 +263,7 @@ export const getVisualizationNodeForNamespace = (
       label: namespace.name,
       type: "namespace" as const,
     },
+    extent: "parent" as const,
     style: {
       width,
       height,

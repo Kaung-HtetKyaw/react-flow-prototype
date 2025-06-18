@@ -40,6 +40,7 @@ import {
 import { VisualizationNode } from "@/dataset/types";
 import { namespacesDataset } from "@/dataset/namespaces";
 import { podsDataset } from "@/dataset/pods";
+import { getVisualizationEdges } from "@/utils/getVisualizationEdges";
 
 const nodeTypes: NodeTypes = {
   custom: CustomNode,
@@ -54,11 +55,13 @@ const edgeTypes: EdgeTypes = {
 
 function FlowDiagram({
   visualizationNodes,
+  visualizationEdges,
 }: {
   visualizationNodes: VisualizationNode[];
+  visualizationEdges: Edge[];
 }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(visualizationNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(visualizationEdges);
   // const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [draggedNode, setDraggedNode] = useState<string | null>(null);
   const [edgeType, setEdgeType] = useState<"draggable" | "simple">("simple");
@@ -260,9 +263,14 @@ export default function Page() {
     getVisualizationNodesForClusterList(clusterDataset),
   );
 
+  const visualizationEdges = getVisualizationEdges();
+
   return (
     <ReactFlowProvider>
-      <FlowDiagram visualizationNodes={visualizationNodes} />
+      <FlowDiagram
+        visualizationNodes={visualizationNodes}
+        visualizationEdges={visualizationEdges}
+      />
     </ReactFlowProvider>
   );
 }
