@@ -23,6 +23,22 @@ import { GroupNode } from "./GroupNode";
 import { DraggableEdge } from "./DraggableEdge";
 import { SimpleEdge } from "./SimpleEdge";
 import { initialDiagramData, initialDiagramEdges } from "./initialData";
+import { clustersDataset } from "@/dataset/clusters";
+import {
+  getClusterHierarchyFromDataset,
+  getNamespaceHierarchyFromDataset,
+  getPodHierarchyFromDataset,
+} from "@/utils/getClusterHierarchyFromDataset";
+import {
+  getFlatVisualizationNodes,
+  getVisualizationNodeForPod,
+  getVisualizationNodesForClusterList,
+  getVisualizationNodesForNamespaceList,
+  getVisualizationNodesForPodList,
+} from "@/utils/getVisualizationNodesFromCluster";
+import { VisualizationNode } from "@/dataset/types";
+import { namespacesDataset } from "@/dataset/namespaces";
+import { podsDataset } from "@/dataset/pods";
 
 const nodeTypes: NodeTypes = {
   custom: CustomNode,
@@ -34,9 +50,14 @@ const edgeTypes: EdgeTypes = {
   simple: SimpleEdge,
 };
 
-function FlowDiagram() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialDiagramData);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialDiagramEdges);
+function FlowDiagram({
+  visualizationNodes,
+}: {
+  visualizationNodes: VisualizationNode[];
+}) {
+  const [nodes, setNodes, onNodesChange] = useNodesState(visualizationNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  // const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [draggedNode, setDraggedNode] = useState<string | null>(null);
   const [edgeType, setEdgeType] = useState<"draggable" | "simple">("simple");
   const proximityThreshold = 100;
@@ -150,32 +171,32 @@ function FlowDiagram() {
     setNodes((nds) => [...nds, newGroup]);
   }, [nodes, setNodes]);
 
-  const onMove: OnMove = (event, viewport) => {
-    if (event instanceof MouseEvent) {
-      const centerPosition = reactFlowInstance.screenToFlowPosition({
-        x: event.clientX,
-        y: event.clientY,
-      });
+  // const onMove: OnMove = (event, viewport) => {
+  //   if (event instanceof MouseEvent) {
+  //     const centerPosition = reactFlowInstance.screenToFlowPosition({
+  //       x: event.clientX,
+  //       y: event.clientY,
+  //     });
 
-      // Create a small rectangle around the cursor position
-      const searchArea = {
-        x: centerPosition.x - 10,
-        y: centerPosition.y - 10,
-        width: 20,
-        height: 20,
-      };
+  //     // Create a small rectangle around the cursor position
+  //     const searchArea = {
+  //       x: centerPosition.x - 10,
+  //       y: centerPosition.y - 10,
+  //       width: 20,
+  //       height: 20,
+  //     };
 
-      const intersectingNodes = reactFlowInstance.getIntersectingNodes(
-        searchArea,
-        false,
-      );
+  //     const intersectingNodes = reactFlowInstance.getIntersectingNodes(
+  //       searchArea,
+  //       false,
+  //     );
 
-      setZoomedInGroups(
-        intersectingNodes.filter((node) => node.type === "group"),
-      );
-    }
-    previousZoom.current = viewport.zoom;
-  };
+  //     setZoomedInGroups(
+  //       intersectingNodes.filter((node) => node.type === "group"),
+  //     );
+  //   }
+  //   previousZoom.current = viewport.zoom;
+  // };
 
   return (
     <div className="h-screen w-full bg-gray-50">
@@ -205,7 +226,7 @@ function FlowDiagram() {
         onNodeDragStop={handleNodeDragStop}
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
-        onMove={onMove}
+        onMove={() => {}}
         fitView
         className="bg-white"
         defaultEdgeOptions={{
@@ -226,9 +247,17 @@ function FlowDiagram() {
 }
 
 export default function Page() {
+  const clusterDataset = clustersDataset
+    .map((el) => getClusterHierarchyFromDataset(el.id))
+    .filter((el) => !!el && el !== null);
+
+  const visualizationNodes = getFlatVisualizationNodes(
+    getVisualizationNodesForClusterList(clusterDataset),
+  );
+
   return (
     <ReactFlowProvider>
-      <FlowDiagram />
+      <FlowDiagram visualizationNodes={visualizationNodes} />
     </ReactFlowProvider>
   );
 }

@@ -1,25 +1,19 @@
+import { VisualizationNode, VisualizationNodeData } from "@/dataset/types";
 import { type NodeProps } from "@xyflow/react";
 
-export type GroupNodeData = {
-  label: string;
-  description: string;
-  icon?: () => JSX.Element;
-  color?: string;
-  type: "cluster" | "namespace" | "pod" | "container";
-};
-
-export const GroupNode = ({ data, selected }: NodeProps) => {
-  const { label, description, icon, color, type } = data as GroupNodeData;
+export const GroupNode = ({ data, selected }: NodeProps<VisualizationNode>) => {
+  const { label, description, icon, color, type } =
+    data as VisualizationNodeData;
 
   return (
     <div
       style={{
-        backgroundColor: color || getBgColorByType(type),
+        backgroundColor: getBgColorByType(type),
         color: getTextColorByType(type),
       }}
       className={`flex h-[24px] w-fit items-center justify-center rounded-br-[8px] rounded-tl-[8px] p-[8px]`}
     >
-      <div className="flex flex-row items-center gap-2">
+      <div className="flex flex-row items-center gap-2 text-left text-[10px]">
         {icon && icon()}
         <span> {label}</span>
       </div>

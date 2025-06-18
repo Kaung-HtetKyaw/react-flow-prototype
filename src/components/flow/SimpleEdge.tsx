@@ -45,7 +45,7 @@ export const SimpleEdge = ({
     <>
       <BaseEdge
         path={edgePath}
-        className="stroke-gray-400 stroke-2 hover:stroke-blue-500"
+        className="stroke-black stroke-2 hover:stroke-blue-500"
         style={{ zIndex: 9999 }}
       />
       {/* <EdgeLabelRenderer>

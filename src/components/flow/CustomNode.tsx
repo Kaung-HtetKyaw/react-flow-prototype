@@ -1,3 +1,7 @@
+import {
+  BASE_CONTAINER_HEIGHT,
+  BASE_CONTAINER_WIDTH,
+} from "@/utils/getVisualizationNodesFromCluster";
 import { Handle, Position, type NodeProps } from "@xyflow/react";
 
 export type NormalNodeData = {
@@ -73,7 +77,16 @@ export const CustomNode = ({ data, selected }: NodeProps) => {
         }}
       />
 
-      <div className="flex items-center">
+      <div
+        style={{
+          width: `${BASE_CONTAINER_WIDTH}px`,
+          height: `${BASE_CONTAINER_HEIGHT}px`,
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+        }}
+        className="flex items-center"
+      >
         <div className="flex flex-row items-center justify-center">
           {nodeData.icon ? (
             <div className="translate-x-[50%]">{nodeData.icon()}</div>
@@ -105,7 +118,10 @@ export const CustomNode = ({ data, selected }: NodeProps) => {
             </svg>
           )}
 
-          <div className="rounded-[4px] border-[1px] border-solid border-[#00277B] bg-[#DFF0FF]  pl-[16px] pr-[8px] text-[10px] text-lg font-bold text-gray-800">
+          <div
+            style={{ minWidth: `${BASE_CONTAINER_WIDTH}px` }}
+            className="rounded-[4px] border-[1px] border-solid border-[#00277B] bg-[#DFF0FF]  pl-[16px] pr-[8px] text-[10px] text-gray-800"
+          >
             {data.label as string}
           </div>
           {/* <div className="text-sm text-gray-500">
