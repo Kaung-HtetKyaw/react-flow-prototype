@@ -2,7 +2,7 @@ import { clustersDataset } from "@/dataset/clusters";
 import { containersDataset } from "@/dataset/containers";
 import { namespacesDataset } from "@/dataset/namespaces";
 import { podsDataset } from "@/dataset/pods";
-import { type Edge } from "@xyflow/react";
+import { MarkerType, type Edge } from "@xyflow/react";
 
 export type ConnectableEntity = {
   id: string;
@@ -107,6 +107,10 @@ export const getVisualizationEdgeBaseStyleForContainer = (): Partial<Edge> => {
     interactionWidth: 20,
     zIndex: 1000,
     type: "smoothstep",
+    markerEnd: {
+      type: MarkerType.Arrow,
+      color: "#04A1F9",
+    },
   };
 };
 
@@ -118,6 +122,10 @@ export const getVisualizationEdgeBaseStyleForNamespace = (): Partial<Edge> => {
     interactionWidth: 20,
     zIndex: 1000,
     type: "smoothstep",
+    markerEnd: {
+      type: MarkerType.Arrow,
+      color: "#25BCC0",
+    },
   };
 };
 
@@ -129,6 +137,10 @@ export const getVisualizationEdgeBaseStyleForCluster = (): Partial<Edge> => {
     interactionWidth: 20,
     zIndex: 1000,
     type: "smoothstep",
+    markerEnd: {
+      type: MarkerType.Arrow,
+      color: "#FC1706",
+    },
   };
 };
 
@@ -140,5 +152,9 @@ export const getVisualizationEdgeBaseStyleForPod = (): Partial<Edge> => {
     interactionWidth: 20,
     zIndex: 1000,
     type: "smoothstep",
+    markerEnd: {
+      type: MarkerType.Arrow,
+      color: "#04A1F9",
+    },
   };
 };

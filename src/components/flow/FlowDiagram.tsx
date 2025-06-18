@@ -238,7 +238,7 @@ function FlowDiagram({
         onNodeDragStop={handleNodeDragStop}
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
-        fitView
+        defaultViewport={{ x: 0, y: 0, zoom: 1 }}
         className="bg-white"
         defaultEdgeOptions={{
           type: edgeType,
