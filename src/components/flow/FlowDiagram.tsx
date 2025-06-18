@@ -83,7 +83,7 @@ function FlowDiagram({
           {
             ...params,
             data: { label: "new connection" },
-            ...getVisualizationEdgeBaseStyle(),
+            ...getVisualizationEdgeBaseStyle("cluster"),
           },
           eds,
         ),

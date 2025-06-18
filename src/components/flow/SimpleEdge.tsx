@@ -16,6 +16,7 @@ export const SimpleEdge = ({
   sourcePosition,
   targetPosition,
   data,
+  selected,
 }: EdgeProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [label, setLabel] = useState((data?.label as string) || "Edge");
@@ -40,7 +41,8 @@ export const SimpleEdge = ({
       ),
     );
   };
-
+  console.log("Selected", selected);
+  console.log(data);
   return (
     <>
       <BaseEdge

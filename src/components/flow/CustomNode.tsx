@@ -14,13 +14,7 @@ export const CustomNode = ({ data, selected }: NodeProps) => {
   const nodeData = data as NormalNodeData;
 
   return (
-    <div
-    // className={`rounded-lg border-2 px-2 py-2 shadow-lg transition-all duration-200 ${
-    //   selected
-    //     ? "border-blue-500 shadow-blue-200"
-    //     : "border-gray-300 hover:border-gray-400"
-    // } relative h-[24px] w-fit bg-white`}
-    >
+    <div>
       {/* Left Handle */}
       <Handle
         id="left"
@@ -131,9 +125,6 @@ export const CustomNode = ({ data, selected }: NodeProps) => {
               {data.label as string}
             </span>
           </div>
-          {/* <div className="text-sm text-gray-500">
-            {(data.description as string) || "Node description"}
-          </div> */}
         </div>
       </div>
     </div>

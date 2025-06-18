@@ -7,6 +7,7 @@ export const podsDataset = [
     name: "argocd-application-controller-0",
     namespaceID: "9fca35e4-afd3-42cb-9a7c-b8b1cd913218",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -16,6 +17,7 @@ export const podsDataset = [
     name: "argocd-applicationset-controller-986b445f-dmvcq",
     namespaceID: "9fca35e4-afd3-42cb-9a7c-b8b1cd913218",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -25,6 +27,7 @@ export const podsDataset = [
     name: "argocd-dex-server-86d46dc659-l4sfk",
     namespaceID: "9fca35e4-afd3-42cb-9a7c-b8b1cd913218",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -34,6 +37,7 @@ export const podsDataset = [
     name: "argocd-notifications-controller-6b57cb9df8-f7t4t",
     namespaceID: "9fca35e4-afd3-42cb-9a7c-b8b1cd913218",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -43,6 +47,7 @@ export const podsDataset = [
     name: "argocd-redis-7bb46fc4dd-2n5nj",
     namespaceID: "9fca35e4-afd3-42cb-9a7c-b8b1cd913218",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -52,6 +57,7 @@ export const podsDataset = [
     name: "argocd-repo-server-55475d8c9f-lcg45",
     namespaceID: "9fca35e4-afd3-42cb-9a7c-b8b1cd913218",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -61,6 +67,7 @@ export const podsDataset = [
     name: "argocd-server-68789d47c9-hxvzd",
     namespaceID: "9fca35e4-afd3-42cb-9a7c-b8b1cd913218",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -70,6 +77,7 @@ export const podsDataset = [
     name: "coredns-668d6bf9bc-grwqb",
     namespaceID: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -79,6 +87,7 @@ export const podsDataset = [
     name: "etcd-minikube",
     namespaceID: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -88,6 +97,7 @@ export const podsDataset = [
     name: "kube-apiserver-minikube",
     namespaceID: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -97,6 +107,7 @@ export const podsDataset = [
     name: "kube-controller-manager-minikube",
     namespaceID: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -106,6 +117,7 @@ export const podsDataset = [
     name: "kube-proxy-25rgt",
     namespaceID: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -115,6 +127,7 @@ export const podsDataset = [
     name: "kube-scheduler-minikube",
     namespaceID: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -124,6 +137,7 @@ export const podsDataset = [
     name: "metrics-server-7fbb699795-hz6nn",
     namespaceID: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -133,6 +147,7 @@ export const podsDataset = [
     name: "storage-provisioner",
     namespaceID: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -142,6 +157,7 @@ export const podsDataset = [
     name: "coredns-74ff55c5b-bjb9s",
     namespaceID: "f1714c63-3937-45a1-908c-cabd53091ad8",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -151,6 +167,7 @@ export const podsDataset = [
     name: "etcd-old",
     namespaceID: "f1714c63-3937-45a1-908c-cabd53091ad8",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -160,6 +177,7 @@ export const podsDataset = [
     name: "kube-apiserver-old",
     namespaceID: "f1714c63-3937-45a1-908c-cabd53091ad8",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -169,6 +187,7 @@ export const podsDataset = [
     name: "kube-controller-manager-old",
     namespaceID: "f1714c63-3937-45a1-908c-cabd53091ad8",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -178,6 +197,7 @@ export const podsDataset = [
     name: "kube-proxy-pl8pn",
     namespaceID: "f1714c63-3937-45a1-908c-cabd53091ad8",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -187,6 +207,7 @@ export const podsDataset = [
     name: "kube-scheduler-old",
     namespaceID: "f1714c63-3937-45a1-908c-cabd53091ad8",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -196,5 +217,6 @@ export const podsDataset = [
     name: "storage-provisioner",
     namespaceID: "f1714c63-3937-45a1-908c-cabd53091ad8",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
 ];

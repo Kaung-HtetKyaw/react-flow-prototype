@@ -22,6 +22,12 @@ export const clustersDataset = [
       numberOfUpgrade: 4,
     },
     tags: [],
+    connections: [
+      {
+        id: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
+        type: "cluster",
+      },
+    ],
   },
   {
     id: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -46,5 +52,6 @@ export const clustersDataset = [
       numberOfUpgrade: 9,
     },
     tags: [],
+    connections: [],
   },
 ];

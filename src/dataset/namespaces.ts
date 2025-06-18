@@ -6,6 +6,7 @@ export const namespacesDataset = [
     id: "9fca35e4-afd3-42cb-9a7c-b8b1cd913218",
     name: "argocd",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -14,6 +15,7 @@ export const namespacesDataset = [
     id: "3b6f2ede-e7fd-4fd4-8c80-188c252edbff",
     name: "default",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -22,6 +24,7 @@ export const namespacesDataset = [
     id: "f3b49c91-b7c9-41b1-bd54-d35f8d0beb65",
     name: "kube-node-lease",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -30,6 +33,7 @@ export const namespacesDataset = [
     id: "e87de422-85bb-4801-bac9-4e2f83a5aa6a",
     name: "kube-public",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a681cc12-f3ef-40c1-b61f-6f68e1887501",
@@ -38,6 +42,7 @@ export const namespacesDataset = [
     id: "ab026944-b32c-4fce-9941-d799b6f9e4dd",
     name: "kube-system",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -46,6 +51,7 @@ export const namespacesDataset = [
     id: "eac781d5-1b8f-417e-be60-21ed742db9e7",
     name: "default",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -54,6 +60,7 @@ export const namespacesDataset = [
     id: "d5e81ca3-fe46-4a67-9086-1b72a9f7e9b9",
     name: "kube-node-lease",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -62,6 +69,7 @@ export const namespacesDataset = [
     id: "3d547e08-0fe1-4741-934e-5f04e73bdf6c",
     name: "kube-public",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
   {
     clusterID: "a93a2af6-6b09-4050-aaa5-a4ec4b013996",
@@ -70,5 +78,6 @@ export const namespacesDataset = [
     id: "f1714c63-3937-45a1-908c-cabd53091ad8",
     name: "kube-system",
     organizationID: "dffc0659-bd4b-40a4-aede-58d663a8484d",
+    connections: [],
   },
 ];
