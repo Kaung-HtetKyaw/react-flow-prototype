@@ -52,52 +52,6 @@ export const getFlatVisualizationNodes = (nodes: VisualizationNode[]) => {
   }));
 };
 
-// export const getVisualizationNodeForCluster = (
-//   cluster: DatasetClusterWithHierarchy,
-//   index: number,
-// ): VisualizationNode => {
-//   const namespacesWithDimensions = cluster.namespaces.map(
-//     (namespace, namespaceIndex) =>
-//       getVisualizationNodeForNamespace(namespace, namespaceIndex),
-//   );
-
-//   const childrenWidth = getHorizontalChunkedArray(namespacesWithDimensions)
-//     .map((row) =>
-//       row.reduce((acc, cur) => {
-//         return acc + Number(cur?.style?.width || BASE_GROUP_WIDTH);
-//       }, 0),
-//     )
-//     .sort((a, b) => b - a)[0];
-
-//   const childrenHeight = namespacesWithDimensions.reduce((acc, cur) => {
-//     return acc + Number(cur?.style?.height || BASE_GROUP_HEIGHT);
-//   }, 0);
-
-//   const visualizationNode = getVisualizationNodeForGroup(
-//     {
-//       id: cluster.id,
-//       label: cluster.name,
-//       childrenCount: cluster.namespaces.length,
-//       childrenWidth,
-//       childrenHeight,
-//     },
-//     index,
-//   );
-
-//   return {
-//     ...visualizationNode,
-//     data: {
-//       ...visualizationNode.data,
-//       icon: NamespaceIcon,
-//       type: "cluster",
-//     },
-//     style: {
-//       ...(visualizationNode.style || {}),
-//     },
-//     children: namespacesWithDimensions as VisualizationNode[],
-//   };
-// };
-
 export const getVisualizationNodesForClusterList = (
   clusterList: DatasetClusterWithHierarchy[],
 ): VisualizationNode[] => {
@@ -247,7 +201,10 @@ export const getVisualizationNodeForNamespace = (
 
   const height =
     numberOfRows > 0
-      ? childrenHeight + padding + (numberOfRows - 1) * ENTITY_GAP
+      ? childrenHeight +
+        padding +
+        (numberOfRows - 1) * ENTITY_GAP +
+        ENTITY_PADDING
       : BASE_GROUP_HEIGHT;
 
   const leftAdjacentNamespace =
@@ -255,7 +212,7 @@ export const getVisualizationNodeForNamespace = (
 
   const x = leftAdjacentNamespace.width + leftAdjacentNamespace.x + ENTITY_GAP;
 
-  const y = ENTITY_GAP;
+  const y = ENTITY_PADDING;
 
   return {
     id: namespace.id,
@@ -331,7 +288,7 @@ export const getVisualizationNodeForPod = (
   const x =
     indexPerRow > 0 ? indexPerRow * (2 * ENTITY_GAP) + width : ENTITY_PADDING;
 
-  const y = topPod.height + topPod.y + ENTITY_GAP;
+  const y = topPod.height + topPod.y + ENTITY_PADDING;
 
   return {
     id: pod.id,
@@ -358,52 +315,6 @@ export const getVisualizationNodeForPod = (
     ),
   };
 };
-
-// export const getVisualizationNodeForGroup = (
-//   node: {
-//     id: string;
-//     label: string;
-//     childrenCount: number;
-//     parentId?: string;
-//     childrenWidth: number;
-//     childrenHeight: number;
-//   },
-//   index: number,
-// ): VisualizationNode => {
-//   const padding = 2 * ENTITY_PADDING;
-//   const horizontalGap = ENTITY_GAP;
-
-//   const width =
-//     node.childrenCount >= 2
-//       ? node.childrenWidth + padding + horizontalGap
-//       : node.childrenWidth + padding;
-
-//   const numberOfRows = Math.ceil(node.childrenCount / ENTITY_PER_ROW);
-//   const verticalGap = (numberOfRows - 1) * ENTITY_GAP;
-//   const height = numberOfRows * node.childrenHeight + verticalGap + padding;
-
-//   const indexPerRow = index % ENTITY_PER_ROW;
-//   const x = indexPerRow * ENTITY_PADDING + indexPerRow * node.childrenWidth;
-//   const y = (index + 1) * ENTITY_GAP + index * height;
-
-//   return {
-//     id: node.id,
-//     parentId: node.parentId,
-//     type: "group",
-//     position: {
-//       x,
-//       y,
-//     },
-//     data: {
-//       label: node.label,
-//       type: "namespace" as const,
-//     },
-//     style: {
-//       width,
-//       height,
-//     },
-//   };
-// };
 
 export const getVisualizationNodesForContainer = (
   container: DatasetContainer,
