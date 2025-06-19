@@ -43,34 +43,6 @@ export const CustomNode = ({ data, selected }: NodeProps) => {
         }}
       />
 
-      {/* Top Handle */}
-      <Handle
-        id="top"
-        type="target"
-        position={Position.Top}
-        style={{
-          width: "12px",
-          height: "12px",
-          top: "-6px",
-          backgroundColor: "#10b981",
-          border: "2px solid white",
-        }}
-      />
-
-      {/* Bottom Handle */}
-      <Handle
-        id="bottom"
-        type="source"
-        position={Position.Bottom}
-        style={{
-          width: "12px",
-          height: "12px",
-          bottom: "-6px",
-          backgroundColor: "#10b981",
-          border: "2px solid white",
-        }}
-      />
-
       <div
         style={{
           width: `${BASE_CONTAINER_WIDTH}px`,
